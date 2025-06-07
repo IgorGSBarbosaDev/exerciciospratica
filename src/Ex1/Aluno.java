@@ -6,10 +6,6 @@ public class Aluno {
     private String curso;
     private String CPF;
 
-    public Aluno(){
-    }
-
-
     public String getNome() {
         return nome;
     }

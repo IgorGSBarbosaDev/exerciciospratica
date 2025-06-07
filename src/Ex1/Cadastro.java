@@ -56,4 +56,16 @@ public class Cadastro {
             System.out.println("-----------------------------");
         }
     }
+
+    public void excluirAluno(){
+        System.out.println("Digite o CPF do aluno que deseja excluir: ");
+        int cpfExclusao = scan.nextInt();
+        for (int i = 0; i < alunos.size(); i++) {
+            if (alunos.get(i).getCPF().equals(cpfExclusao)){
+                alunos.remove(i);
+                System.out.println("Aluno excluído com sucesso!");
+                return;
+            }
+        }
+    }
 }
