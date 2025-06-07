@@ -7,5 +7,9 @@ public class Main {
         System.out.println("Bem vindo ao sistema de cadastro de alunos!");
         System.out.println("Para realizar o cadastro, por favor responda corretamente os dados necessarios.");
 
+        Cadastro cadastro = new Cadastro();
+        cadastro.cadastrarAluno();
+        cadastro.listarAlunos();
+
     }
 }

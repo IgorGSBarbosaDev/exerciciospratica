@@ -6,11 +6,7 @@ public class Aluno {
     private String curso;
     private String CPF;
 
-    public Aluno(String nome, int idade, String curso, String CPF){
-        this.nome = nome;
-        this.idade = idade;
-        this.curso = curso;
-        this.CPF = CPF;
+    public Aluno(){
     }
 
 

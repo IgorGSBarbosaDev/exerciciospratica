@@ -1,34 +1,59 @@
 package Ex1;
 
-import javax.crypto.spec.PSource;
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cadastro {
-    private Aluno[] alunos;
-    private int contador;
+    ArrayList<Aluno> alunos = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
 
-    public void cadastrarAluno(String nome, int idade, String curso, String CPF) {
+    public void cadastrarAluno() {
+
+        Aluno aluno = new Aluno();
+
         System.out.print("Insira seu nome completo: ");
-        nome =scan.nextLine();
+        aluno.setNome(scan.nextLine());
         System.out.print("Insira sua idade: ");
-        idade =scan.nextInt();
+        aluno.setIdade(scan.nextInt());
+        scan.nextLine(); // Consumir a quebra de linha pendente
+        System.out.print("Digite seu CPF(apenas número): ");
+        aluno.setCPF(scan.nextLine());
+
+        if (aluno.getCPF().length() != 11){
+            System.out.println("CPF inválido. Tente novamente!");
+            return;
+        }
         System.out.println("Digite o numero do curso desejado: ");
         System.out.println("1 - Engenharia de Software");
         System.out.println("2 - Engenharia de Manutenção e Suporte");
         System.out.println("3 - Engenharia Eletrônica");
         System.out.print("Digite o numero do curso desejado: ");
-        curso = scan.nextLine();
-        if (curso.equals("1")) {
-            curso = "Engenharia de Software";
-        } else if (curso.equals("2")) {
-            curso = "Engenharia de Manutenção e Suporte";
-        } else if (curso.equals("3")) {
-            curso = "Engenharia Eletrônica";
+        aluno.setCurso(scan.nextLine());
+        if (aluno.getCurso().equals("1")) {
+            aluno.setCurso("Engenharia de Software");
+        } else if (aluno.getCurso().equals("2")) {
+            aluno.setCurso("Engenharia de Manutenção e Suporte");
+        } else if (aluno.getCurso().equals("3")) {
+            aluno.setCurso("Engenharia Eletrônica");
         } else {
             System.out.println("Curso inválido. Tente novamente!");
         }
+        alunos.add(aluno);
+        System.out.println("Aluno cadastrado!");
+    }
 
+    public void listarAlunos() {
+        if (alunos.isEmpty()) {
+            System.out.println("Nenhum aluno cadastrado.");
+            return;
+        }
+        System.out.println("Lista de alunos cadastrados:");
+        for (Aluno aluno : alunos) {
+            System.out.println("Nome: " + aluno.getNome());
+            System.out.println("Idade: " + aluno.getIdade());
+            System.out.println("Curso: " + aluno.getCurso());
+            System.out.println("CPF: " + aluno.getCPF());
+            System.out.println("-----------------------------");
+        }
     }
 }
