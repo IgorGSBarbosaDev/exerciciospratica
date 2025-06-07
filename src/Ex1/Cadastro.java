@@ -19,10 +19,6 @@ public class Cadastro {
         System.out.print("Digite seu CPF(apenas número): ");
         aluno.setCPF(scan.nextLine());
 
-        if (aluno.getCPF().length() != 11){
-            System.out.println("CPF inválido. Tente novamente!");
-            return;
-        }
         System.out.println("Digite o numero do curso desejado: ");
         System.out.println("1 - Engenharia de Software");
         System.out.println("2 - Engenharia de Manutenção e Suporte");
@@ -59,7 +55,7 @@ public class Cadastro {
 
     public void excluirAluno(){
         System.out.println("Digite o CPF do aluno que deseja excluir: ");
-        int cpfExclusao = scan.nextInt();
+        String cpfExclusao = scan.nextLine();
         for (int i = 0; i < alunos.size(); i++) {
             if (alunos.get(i).getCPF().equals(cpfExclusao)){
                 alunos.remove(i);
